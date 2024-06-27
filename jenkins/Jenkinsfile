@@ -4,6 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
+                sh "sed -i 's/3.9.2/3.8.6/g' pom.xml"
             }
         }
         stage('Test') {
